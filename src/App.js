@@ -15,7 +15,8 @@ function App() {
     <div>
       <Header></Header>
      <Routes>
-      <Route path='home' element={<Home></Home>}></Route>
+      <Route path='/' element={<Home></Home>}></Route>
+      <Route path='/home' element={<Home></Home>}></Route>
       <Route path='service/:serviceId' element ={<ServiceDetails></ServiceDetails>}></Route>
       <Route path='health' element={<HealthMedicine></HealthMedicine>}></Route>
         <Route path='about' element={<About></About>}></Route>

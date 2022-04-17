@@ -1,24 +1,44 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './Login.css'
 import auth from '../../firebase.init'
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import {useAuthState, useSignInWithEmailAndPassword} from 'react-firebase-hooks/auth';
 
 const Login = () => {
+    const [user, loading, error] = useAuthState(auth);
+    
+   const [erorr, setError] = useState('');
 
     const [
-        createUserWithEmailAndPassword,
-        user,
-        loading,
-        error,
-      ] = useCreateUserWithEmailAndPassword(auth);
+        signInWithEmailAndPassword,
+      ] = useSignInWithEmailAndPassword(auth);
+
+      const navigate = useNavigate();
+      if(user){
+        navigate('/home')
+    }
 
 
+    const emailCheck = (e) =>{
+
+    const emailRegex = /\S+@\S+\.\S+/;
+   const validEmail = emailRegex.test(e.target.value);
+   if(!validEmail){
+    const p = <p className='text-danger'>please valid email</p>
+    return setError(p);
+   }else{
+    return setError('')
+   }
+    }
  const handleSubmit =(e)=>{
    e.preventDefault();
+
    const email = e.target.email.value;
    const password = e.target.password.value;
-   createUserWithEmailAndPassword(email, password);
+   signInWithEmailAndPassword(email, password);
+   
+
+
  }
 
 
@@ -29,7 +49,8 @@ const Login = () => {
             <form onSubmit={handleSubmit}>
             <h1 className='form-title'>Please Login</h1>
                 <label htmlFor="email">Email</label>
-                <input className='d-block' placeholder='Enter Your Email' type="email" name="email" id="email" />
+                <input onChange={emailCheck} className='d-block' placeholder='Enter Your Email' type="email" name="email" id="email" />
+                <p>{erorr}</p>
 
                 <label htmlFor="password">Password</label>
                 <input className='d-block mt-2' type="password" placeholder='Enter Your Password' name="password" id="password" />

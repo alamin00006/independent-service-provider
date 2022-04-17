@@ -7,6 +7,7 @@ import HealthMedicine from './Pages/HealthMedicine/HealthMedicine';
 import Home from './Pages/Home/Home';
 import Login from './Pages/Login/Login';
 import ServiceDetails from './Pages/Services/ServiceDetails/ServiceDetails';
+import SignUp from './Pages/SignUp/SignUp';
 
 
 
@@ -21,6 +22,7 @@ function App() {
       <Route path='health' element={<HealthMedicine></HealthMedicine>}></Route>
         <Route path='about' element={<About></About>}></Route>
       <Route path='login' element={<Login></Login>}></Route>
+      <Route path='signin' element={<SignUp></SignUp>}></Route>
      </Routes>
     </div>
   );

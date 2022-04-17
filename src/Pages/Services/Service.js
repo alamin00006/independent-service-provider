@@ -10,8 +10,8 @@ const Service = ({service}) => {
         navigate(`/service/${id}`)
     }
     return (
-        <div>
-            <Card style={{ width: '18rem' }}>
+        <div className='col-lg-4 col-sm-12'>
+            <Card className='single-card w-100' style={{ width: '18rem' }}>
   <Card.Img variant="top" src={picture} />
   <Card.Body>
     <Card.Title>{name}</Card.Title>
@@ -19,7 +19,7 @@ const Service = ({service}) => {
     <Card.Text>
       {description}
     </Card.Text>
-    <Button variant="primary" onClick={()=>BookingNow(id)}>Booking Now</Button>
+    <Button className='w-100 p-2 fs-5 rounded' variant="info" onClick={()=>BookingNow(id)}>Booking Now</Button>
   </Card.Body>
 </Card>
         </div>

@@ -1,0 +1,17 @@
+.subscribe-title{
+    margin-left: 600px;
+}
+.subscribe{
+    width: 100%;
+}
+.subscribe-input{
+    width: 500px;
+}
+@media only screen and (max-width: 600px) {
+    .subscribe-title{
+        margin-left: 50px;
+    } 
+    .subscribe{
+        width: 100%;
+    }
+}

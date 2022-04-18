@@ -17,3 +17,21 @@
     font-size: 20px;
     height: 50px;
 }
+@media only screen and (max-width: 576px) {
+  
+    .banner-title{
+        position: static;
+        top: 150px;
+        left: 0px;
+        color: white;
+    }
+    .banner-title input{
+        width: 50%;
+        font-size: 20px;
+        height: 50px;
+    }
+    .banner button{
+       
+        display: block;
+    }
+}

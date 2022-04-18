@@ -30,7 +30,35 @@ const Blog = () => {
 
             <p>
            3.What other services does firebase provide other than authentication?
-           <p></p>
+           <h4>Ans</h4>
+           <p>ফায়ারবেস্ট প্রথমত তিনটি প্রোডাক্ট প্রোভাইড করে: <p>Build, Release & Monitor, Engage </p>
+                <ul>Build এর মাধ্যমে আমরা এই সার্ভিসগুলো পেয়ে থাকি:
+                    <li>Realtime Database</li>
+                    <li>Remote Config</li>
+                    <li>Firebase ML</li>
+                    <li>Cloud Functions</li>
+                    <li>Authentication</li>
+                    <li>Cloud Messaging</li>
+                    <li>Hosting</li>
+                    <li>Cloud Storage</li>
+                </ul>
+                <ul>Release & Monitor এর মাধ্যমে আমরা এই সার্ভিসগুলো পেয়ে থাকি:
+                    <li>Google Analytics</li>
+                    <li>Remote Config</li>
+                    <li>Performance monitoring</li>
+                    <li>Test Lab</li>
+                    <li>App Distribution</li>
+                </ul>
+                <ul>Engage এর মাধ্যমে আমরা এই সার্ভিসগুলো পেয়ে থাকি : 
+                <li>Google Analytics</li>
+                <li>A/B testing</li>
+                <li>Authentication</li>
+                <li>Cloud Messaging</li>
+                <li>Crashlytics</li>
+                <li>Dynamic Links</li>
+                <li>In-App Messaging</li>
+                </ul>
+           </p>
 
             </p>
         </div>

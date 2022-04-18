@@ -1,65 +1,107 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Login.css'
 import auth from '../../firebase.init'
-import {useAuthState, useSignInWithEmailAndPassword} from 'react-firebase-hooks/auth';
+import {useSignInWithEmailAndPassword, useSignInWithGoogle} from 'react-firebase-hooks/auth';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
-    const [user, loading, error] = useAuthState(auth);
-    
-   const [erorr, setError] = useState('');
 
+    const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
+    
     const [
         signInWithEmailAndPassword,
+         user,
+        loading,
+        hookError,
       ] = useSignInWithEmailAndPassword(auth);
 
-      const navigate = useNavigate();
-      if(user){
-        navigate('/home')
-    }
+   
+      const [userInfo, setUserInfo] = useState({
+        email: "",
+        password : ''
+    })
+  
+    const [error, setError] = useState({
+        emailError : "",
+        passWordError: ""
+    })
+      
+        const navigate = useNavigate();
+        const location = useLocation();
+        const from = location.state?.from?.pathname || "/";
+      useEffect(() =>{
+        if(user){
+          navigate(from, { replace: true })
+      }
+      },[user])
+  
+          const emailCheck = (e) =>{
+          const emailRegex = /\S+@\S+\.\S+/;
+         const validEmail = emailRegex.test(e.target.value);
+         if(validEmail){
+          setUserInfo({...userInfo, email:e.target.value})
+          setError({...error, emailError: ''})
+         }else{
+          setError({...error, emailError: 'Invalid Email'})
+          setUserInfo({...userInfo, email:''})
+         }
+          }
+   
+      const passwordCheck = (e) =>{
+          const passwordRegex = /.{6,}/;
+          const validPassWord = passwordRegex.test(e.target.value);
+          if(validPassWord){
+              setUserInfo({...userInfo, password:e.target.value})
+              setError({...error, passWordError: ''})
+             }else{
+              setError({...error, passWordError: 'Invalid Password'})
+              setUserInfo({...userInfo, password:''})
+             }
+       }
+          
 
-
-    const emailCheck = (e) =>{
-
-    const emailRegex = /\S+@\S+\.\S+/;
-   const validEmail = emailRegex.test(e.target.value);
-   if(!validEmail){
-    const p = <p className='text-danger'>please valid email</p>
-    return setError(p);
-   }else{
-    return setError('')
-   }
-    }
+ useEffect(() =>{
+    if(hookError){
+        toast(hookError.message)
+       }
+ },[hookError,googleError])
  const handleSubmit =(e)=>{
    e.preventDefault();
-
-   const email = e.target.email.value;
-   const password = e.target.password.value;
-   signInWithEmailAndPassword(email, password);
    
-
-
+   signInWithEmailAndPassword(userInfo.email, userInfo.password);
+   
  }
-
 
     return (
        
-            <div className='d-flex justify-content-center login-form'>
+            <div>
             
-            <form onSubmit={handleSubmit}>
-            <h1 className='form-title'>Please Login</h1>
-                <label htmlFor="email">Email</label>
-                <input onChange={emailCheck} className='d-block' placeholder='Enter Your Email' type="email" name="email" id="email" />
-                <p>{erorr}</p>
-
-                <label htmlFor="password">Password</label>
-                <input className='d-block mt-2' type="password" placeholder='Enter Your Password' name="password" id="password" />
-               <input className='bg-info border-0 py-2 mt-2 fs-5' type="submit" value="Login" />
-
-               <p>No Account<Link to = "/signin">Please Sign In
+            <div>
+            <h1 className='form-title text-center'>Please Login</h1>
+            <form onSubmit={handleSubmit} className='d-flex justify-content-center login-form'>
+            <div>
+            
+            <label htmlFor="email">Email</label>
+            <input onChange={emailCheck} className='d-block' placeholder='Enter Your Email' type="email" name="email" id="email" />
+           {error?.emailError && <p className='text-danger'>{error.emailError}</p>}
+           
+            <label htmlFor="password">Password</label>
+            <input onChange={passwordCheck} className='d-block mt-2' type="password" placeholder='Enter Your Password' name="password" id="password" />
+            {error?.passWordError&& <p className='text-danger'>{error.passWordError}</p>}
+                 <p></p>
+           <input className='bg-info border-0 py-2 mt-2 fs-5' type="submit" value="Login" />
+           <p>No Account<Link to = "/signin">Please Register
            </Link></p>
-            </form>
-            
+           
+           <ToastContainer/>
+            </div>
+          
+        </form>
+        <button onClick={()=>signInWithGoogle()} className='btn btn-primary google-signIn'>Google SignIn</button>
+            </div>
+           
         </div>
         
     );

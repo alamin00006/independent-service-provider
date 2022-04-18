@@ -1,5 +1,5 @@
 .login-form{
-    margin: 200px auto;
+    margin: 20px auto;
 }
 .login-form input{
    width: 500px;
@@ -9,4 +9,10 @@
 .form-title{
   font-size: 50px;
   
+}
+
+.google-signIn{
+ margin-left: 580px;
+ width: 200px;
+ font-size: 20px;
 }

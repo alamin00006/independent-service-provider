@@ -5,14 +5,14 @@ const Footer = () => {
     return (
         <div className='row w-100 bg-dark p-5 text-white'>
             <div className='col-lg-4 col-sm-12'>
-                <h1>Physical Medicine Speacilist</h1>
+                <h3>Physical Medicine Speacilist</h3>
                 <ul>
                     <li>Health Care Service</li>
                     <li>Any Where Any Time</li>
                 </ul>
             </div>
             <div className='col-lg-4 col-sm-12'>
-                <h1>Services</h1>
+                <h3>Services</h3>
                 <ul>
                     <li>Stemcell</li>
                     <li>PRP</li>
@@ -23,7 +23,7 @@ const Footer = () => {
                 </ul>
             </div>
             <div className='col-lg-4 col-sm-12'>
-            <h1>Public Relation</h1>
+            <h3>Public Relation</h3>
             <ul>
                 <li>Apply as partner</li>
                 <li>Career</li>

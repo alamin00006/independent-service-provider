@@ -12,12 +12,12 @@ const Service = ({service}) => {
     return (
         <div className='col-lg-4 col-sm-12'>
             <Card className='single-card w-100' style={{ width: '18rem' }}>
-  <Card.Img variant="top" src={picture} />
+  <Card.Img className='img' variant="top" src={picture} />
   <Card.Body>
     <Card.Title>{name}</Card.Title>
     <Card.Title>pirce: ${price}</Card.Title>
     <Card.Text>
-      {description}
+      {description.slice(0,150)}
     </Card.Text>
     <Button className='w-100 p-2 fs-5 rounded' variant="info" onClick={()=>BookingNow(id)}>Booking Now</Button>
   </Card.Body>

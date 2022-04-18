@@ -1,13 +1,21 @@
+
+.subscribe-container{
+    background-color: rgb(2, 121, 109);
+    padding: 20px;
+    margin-bottom:15px;
+    border-radius: 30px;
+}
 .subscribe-title{
-    margin-left: 600px;
+    margin-left: 450px;
+    color: white;
 }
 
 .subscribe{
-    width: 100%;
     margin: 20px auto;
 }
-.subscribe-input{
-    width: 500px;
+.subscribe input{
+   width: 500px;
+   height: 50px;
 }
 @media only screen and (max-width: 600px) {
     .subscribe-title{
@@ -16,7 +24,7 @@
     .subscribe{
         width: 100%;
     }
-    .subscribe-input{
+    .subscribe input{
         width: 100%;
     }
 }

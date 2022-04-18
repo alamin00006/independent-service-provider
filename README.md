@@ -9,7 +9,7 @@ This is my live site link [My Site](https://physical-medicine-specialist.web.app
 * Into about page my photo and short descrioption about me
 * Into Login page Login Form and this authentication
 
-## My Website in usage framework or libary:
+## My Website in usage framework or library:
 * Valina Css
 * React Boostrap
 * React Router

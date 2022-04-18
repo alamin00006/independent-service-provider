@@ -1,9 +1,22 @@
 # Getting Started with Create React App
+# My Site Name : Physical-medicine-specialist
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is my live site link [My Site](https://physical-medicine-specialist.web.app/).
+
+* Into Home page a banner, 6 Services and Footer 
+* Into Every Services a image, service Name, short Description 
+* Into Blog page 4 questions answer
+* Into about page my photo and short descrioption about me
+* Into Login page Login Form and this authentication
+
+## My Website in usage framework or libary:
+* Valina Css
+* React Boostrap
+* React Router
+* React Toast
+
 
 ## Available Scripts
-
 In the project directory, you can run:
 
 ### `npm start`

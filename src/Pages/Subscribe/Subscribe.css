@@ -1,8 +1,10 @@
 .subscribe-title{
     margin-left: 600px;
 }
+
 .subscribe{
     width: 100%;
+    margin: 20px auto;
 }
 .subscribe-input{
     width: 500px;
@@ -12,6 +14,9 @@
         margin-left: 50px;
     } 
     .subscribe{
+        width: 100%;
+    }
+    .subscribe-input{
         width: 100%;
     }
 }

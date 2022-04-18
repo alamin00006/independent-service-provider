@@ -17,7 +17,7 @@ const Subscribe = () => {
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label className='fs-5 fw-bold '>Email address</Form.Label>
                 <Form.Control type="email" placeholder="Enter Your email" className='subscribe-input' />
-                <Button className='fw-bold fs-5' variant="primary" type="submit">
+                <Button className='fw-bold' variant="primary" type="submit">
                 Subscribe Now
               </Button>
               </Form.Group>

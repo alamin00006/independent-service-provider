@@ -29,6 +29,7 @@ function App() {
       <Route path='signin' element={<SignUp></SignUp>}></Route>
       <Route path='*' element={<NotFound></NotFound>}></Route>
      </Routes>
+   
     </div>
   );
 }

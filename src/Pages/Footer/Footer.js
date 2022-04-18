@@ -16,7 +16,7 @@ const Footer = () => {
                 <ul>
                     <li>Stemcell</li>
                     <li>PRP</li>
-                    <li>Strock fast Improve</li>
+                    <li>Strocke fast Improve</li>
                     <li>Choronic Lumbago</li>
                     <li>Bels Pulsy</li>
                     <li>Therapy</li>

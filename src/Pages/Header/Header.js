@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import auth from "../../firebase.init";
 import "./Header.css";
 
+
 const Header = () => {
 
   const [user, loading, error] = useAuthState(auth);
@@ -16,10 +17,10 @@ const Header = () => {
   return (
     <nav className="fs-5">
       <div>
-        <Navbar collapseOnSelect  expand="lg" bg="info" variant="light">
+        <Navbar collapseOnSelect  expand="lg" bg="dark" variant="light">
           <Container>
-            <Navbar.Brand as={Link} to="/">
-              My Logo
+            <Navbar.Brand as={Link} to="/" className="text-white">
+              Physical Medicine Specialist
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
